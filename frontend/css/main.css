@@ -1,0 +1,343 @@
+:root {
+    --ink: #17212b;
+    --muted: #5e6872;
+    --paper: #f5f7f9;
+    --card: #fff;
+    --line: #d9e0e6;
+    --unsafe: #a7333f;
+    --unsafe-soft: #fff3f3;
+    --secure: #16734a;
+    --secure-soft: #effaf4;
+    --focus: #246bce;
+    --shadow: 0 12px 35px #17212b14;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font:
+        16px/1.5 system-ui,
+        -apple-system,
+        Segoe UI,
+        sans-serif;
+}
+header {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+}
+.eyebrow {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: var(--focus);
+}
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin: 0.25rem;
+}
+.intro {
+    color: var(--muted);
+}
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem 1rem 3rem;
+}
+.app-title {
+    text-align: center;
+    margin: 0 0 2rem;
+}
+.comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+.side {
+    padding: 2rem;
+    min-width: 0;
+}
+.side + .side {
+    border-left: 1px solid var(--line);
+}
+.unsafe {
+    background: linear-gradient(150deg, var(--unsafe-soft), #fff 45%);
+}
+.secure {
+    background: linear-gradient(150deg, var(--secure-soft), #fff 45%);
+}
+.badge {
+    display: inline-block;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    padding: 0.25rem 0.65rem;
+    font-weight: 800;
+    font-size: 0.75rem;
+}
+.unsafe .badge,
+.unsafe .primary {
+    color: var(--unsafe);
+}
+.secure .badge,
+.secure .primary {
+    color: var(--secure);
+}
+.credentials,
+.rendered,
+.learning {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+.credentials code,
+.credentials span {
+    display: block;
+}
+.switcher,
+.topics {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+button {
+    border: 1px solid var(--line);
+    background: #fff;
+    border-radius: 8px;
+    padding: 0.65rem 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+button:hover,
+button.active {
+    border-color: var(--focus);
+    color: var(--focus);
+}
+button:disabled {
+    opacity: 0.55;
+    cursor: wait;
+}
+.primary {
+    width: 100%;
+    border-color: currentColor;
+    margin-top: 0.5rem;
+}
+label {
+    display: block;
+    font-weight: 650;
+    margin: 0.8rem 0;
+}
+input,
+textarea {
+    display: block;
+    width: 100%;
+    margin-top: 0.3rem;
+    padding: 0.7rem;
+    border: 1px solid #abb6c0;
+    border-radius: 7px;
+    font: inherit;
+}
+textarea {
+    min-height: 80px;
+}
+input:focus,
+textarea:focus,
+button:focus {
+    outline: 3px solid #246bce33;
+    outline-offset: 2px;
+}
+.hidden {
+    display: none !important;
+}
+.result {
+    min-height: 1.5rem;
+    margin: 0.75rem 0;
+    font-weight: 650;
+}
+.result.error {
+    color: var(--unsafe);
+}
+.result.success {
+    color: var(--secure);
+}
+.dashboard {
+    border-top: 1px solid var(--line);
+    margin-top: 1rem;
+}
+.message-output {
+    overflow-wrap: anywhere;
+}
+.status {
+    list-style: none;
+    padding: 1rem 0 0;
+    border-top: 1px solid var(--line);
+    line-height: 1.9;
+}
+.unsafe .status {
+    color: var(--unsafe);
+}
+.secure .status {
+    color: var(--secure);
+}
+.learning {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+}
+.topic-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.topic-grid div {
+    padding: 1rem;
+    border-radius: 8px;
+    background: var(--paper);
+}
+footer {
+    text-align: center;
+    color: var(--muted);
+    padding: 2rem;
+}
+@media (max-width: 760px) {
+    .comparison {
+        grid-template-columns: 1fr;
+    }
+    .side + .side {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+    }
+    .side {
+        padding: 1.3rem;
+    }
+    .topic-grid {
+        grid-template-columns: 1fr;
+    }
+    header {
+        padding-top: 2rem;
+    }
+}
+
+.comparison {
+    gap: 2rem;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+}
+.global-switcher {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+.global-switcher button {
+    min-width: 110px;
+}
+.auth-separator {
+    height: 1px;
+    margin: 0;
+    border: 0;
+    background: var(--line);
+}
+.auth-separator + .comparison {
+    margin-top: 2rem;
+}
+.side {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid #dfe4e8;
+    border-radius: 22px;
+    box-shadow:
+        0 18px 50px rgba(23, 33, 43, 0.12),
+        0 3px 10px rgba(23, 33, 43, 0.06);
+    overflow: hidden;
+}
+.side + .side {
+    border-left: 1px solid var(--line);
+}
+.unsafe {
+    background:
+        radial-gradient(
+            circle at 50% 0,
+            rgba(167, 51, 63, 0.13),
+            transparent 42%
+        ),
+        linear-gradient(180deg, #fffafa 0, #fff 48%);
+}
+.secure {
+    background:
+        radial-gradient(
+            circle at 50% 0,
+            rgba(22, 115, 74, 0.13),
+            transparent 42%
+        ),
+        linear-gradient(180deg, #f9fffb 0, #fff 48%);
+}
+.switcher {
+    justify-content: center;
+}
+.auth-form,
+.dashboard,
+.result {
+    width: 100%;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.status {
+    width: 100%;
+    margin-top: auto;
+    text-align: left;
+}
+@media (max-width: 760px) {
+    .comparison {
+        gap: 1.5rem;
+    }
+    .side + .side {
+        border-top: 1px solid var(--line);
+    }
+}
+
+body {
+    background: #fff;
+}
+
+.primary {
+    width: auto;
+    min-width: 120px;
+    padding: 0.72rem 1.4rem;
+    color: #fff !important;
+}
+.unsafe .primary {
+    background: var(--unsafe);
+    border-color: var(--unsafe);
+}
+.secure .primary {
+    background: var(--secure);
+    border-color: var(--secure);
+}
+.primary:hover {
+    color: #fff !important;
+    filter: brightness(0.92);
+}
+button {
+    border-radius: 50px;
+}
+.auth-form label {
+    text-align: left;
+    font-weight: 400;
+}
+.auth-form input {
+    font-weight: 400;
+}

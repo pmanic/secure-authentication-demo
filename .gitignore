@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+.local-archive/
+~$*
+*.mv.db
+*.trace.db
+*.lock.db
+__pycache__/
+*.pyc
+target/
+backend/target/
+backend/data/
+.idea/
+.vscode/
+*.log
